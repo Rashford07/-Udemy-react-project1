@@ -2,6 +2,7 @@ import React from "react";
 import Card from "../UI/Card";
 import ExpenseItem from "./ExpenseItem";
 import "./Expenses.css";
+import ExpensesFilter from "./ExpensesFilter";
 function Expenses() {
   const expenses = [
     {
@@ -24,8 +25,17 @@ function Expenses() {
       date: new Date(2021, 5, 12),
     },
   ];
+
+  const filterHandler = (filterValue) => {
+    const filterDate = filterValue;
+    console.log(filterDate);
+  };
+
   return (
     <Card className="expenses">
+      <div>
+        <ExpensesFilter onFilter={filterHandler} />
+      </div>
       {expenses.map((exp) => (
         <ExpenseItem
           key={exp.id}
